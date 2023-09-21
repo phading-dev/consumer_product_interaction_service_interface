@@ -1,0 +1,189 @@
+[{
+  "name": "GetCurrentMeterRequestBody",
+  "message": {
+    "fields": []
+  }
+}, {
+  "name": "GetCurrentMeterResponse",
+  "message": {
+    "fields": [{
+      "name" : "playtimeMeters",
+      "type": "PlaytimeMeter",
+      "import": "./playtime_meter",
+      "isArray": true
+    }]
+  }
+}, {
+  "name": "GetCurrentMeter",
+  "service": {
+    "path": "/GetCurrentMeter",
+    "body": "GetCurrentMeterRequestBody",
+    "auth": {
+      "key": "auth",
+      "type": "UserSession",
+      "import": "@phading/user_service_interface/user_session"
+    },
+    "response": "GetCurrentMeterResponse",
+    "outputWebClient": "./client_requests",
+    "outputHandler": "./server_handlers"
+  }
+}, {
+  "name": "IncrementPlaytimeRequestBody",
+  "message": {
+    "fields": [{
+      "name": "productId",
+      "type": "string"
+    }, {
+      "name": "playtime",
+      "type": "number"
+    }]
+  }
+}, {
+  "name": "IncrementPlaytimeResponse",
+  "message": {
+    "fields": []
+  }
+}, {
+  "name": "IncrementPlaytime",
+  "service": {
+    "path": "/IncrementPlaytime",
+    "body": "IncrementPlaytimeRequestBody",
+    "auth": {
+      "key": "auth",
+      "type": "UserSession",
+      "import": "@phading/user_service_interface/user_session"
+    },
+    "response": "IncrementPlaytimeResponse",
+    "outputWebClient": "./client_requests",
+    "outputHandler": "./server_handlers"
+  }
+}, {
+  "name": "RecordPlayHistoryRequestBody",
+  "message": {
+    "fields": [{
+      "name": "productId",
+      "type": "string"
+    }, {
+      "name": "playTimestamp",
+      "type": "number"
+    }, {
+      "name": "progress",
+      "type": "number"
+    }]
+  }
+}, {
+  "name": "RecordPlayHistoryResponse",
+  "message": {
+    "fields": []
+  }
+}, {
+  "name": "RecordPlayHistory",
+  "service": {
+    "path": "/RecordPlayHistory",
+    "body": "RecordPlayHistoryRequestBody",
+    "auth": {
+      "key": "auth",
+      "type": "UserSession",
+      "import": "@phading/user_service_interface/user_session"
+    },
+    "response": "RecordPlayHistoryResponse",
+    "outputWebClient": "./client_requests",
+    "outputHandler": "./server_handlers"
+  }
+}, {
+  "name": "SaveProductRequestBody",
+  "message": {
+    "fields": [{
+      "name": "productId",
+      "type": "number"
+    }, {
+      "name": "listId",
+      "type": "string"
+    }]
+  }
+}, {
+  "name": "SaveProductResponse",
+  "message": {
+    "fields": []
+  }
+}, {
+  "name": "SaveProduct",
+  "service": {
+    "path": "/SaveProduct",
+    "body": "SaveProductRequestBody",
+    "auth": {
+      "key": "auth",
+      "type": "UserSession",
+      "import": "@phading/user_service_interface/user_session"
+    },
+    "response": "SaveProductResponse",
+    "outputWebClient": "./client_requests",
+    "outputHandler": "./server_handlers"
+  }
+}, {
+  "name": "CreateSavedProductListRequestBody",
+  "message": {
+    "fields": [{
+      "name": "appType",
+      "type": "AppType",
+      "import": "@phading/product_service_interface/app_type"
+    }, {
+      "name": "name",
+      "type": "string"
+    }]
+  }
+}, {
+  "name": "CreateSavedProductListResponse",
+  "message": {
+    "fields": [{
+      "name": "listId",
+      "type": "string"
+    }]
+  }
+}, {
+  "name": "CreateSavedProductList",
+  "service": {
+    "path": "/CreateSavedProductList",
+    "body": "CreateSavedProductListRequestBody",
+    "auth": {
+      "key": "auth",
+      "type": "UserSession",
+      "import": "@phading/user_service_interface/user_session"
+    },
+    "response": "CreateSavedProductListResponse",
+    "outputWebClient": "./client_requests",
+    "outputHandler": "./server_handlers"
+  }
+}, {
+  "name": "ListSavedProductListRequestBody",
+  "message": {
+    "fields": [{
+      "name": "appType",
+      "type": "AppType",
+      "import": "@phading/product_service_interface/app_type"
+    }]
+  }
+}, {
+  "name": "ListSavedProductListResponse",
+  "message": {
+    "fields": [{
+      "name": "savedProductList",
+      "type": "SavedProductList",
+      "import": "./saved_product_list"
+    }]
+  }
+}, {
+  "name": "ListSavedProductList",
+  "service": {
+    "path": "/ListSavedProductList",
+    "body": "ListSavedProductListRequestBody",
+    "auth": {
+      "key": "auth",
+      "type": "UserSession",
+      "import": "@phading/user_service_interface/user_session"
+    },
+    "response": "ListSavedProductListResponse",
+    "outputWebClient": "./client_requests",
+    "outputHandler": "./server_handlers"
+  }
+}]

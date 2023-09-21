@@ -1,0 +1,12 @@
+[{
+  "name": "SavedProductList",
+  "message": {
+    "fields": [{
+      "name": "listId",
+      "type": "string"
+    }, {
+      "name": "name",
+      "type": "string"
+    }]
+  }
+}]
