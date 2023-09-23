@@ -22,7 +22,7 @@ export let GET_PLAYTIME_METER_REPORT_REQUEST_BODY: MessageDescriptor<GetPlaytime
 };
 
 export interface GetPlaytimeMeterReportResponse {
-  playtimeMeterReport?: Array<PlaytimeMeterReport>,
+  playtimeMeterReport?: PlaytimeMeterReport,
 }
 
 export let GET_PLAYTIME_METER_REPORT_RESPONSE: MessageDescriptor<GetPlaytimeMeterReportResponse> = {
@@ -31,7 +31,6 @@ export let GET_PLAYTIME_METER_REPORT_RESPONSE: MessageDescriptor<GetPlaytimeMete
     {
       name: 'playtimeMeterReport',
       messageType: PLAYTIME_METER_REPORT,
-      isArray: true,
     },
   ]
 };

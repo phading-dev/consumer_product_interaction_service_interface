@@ -13,8 +13,7 @@
     "fields": [{
       "name" : "playtimeMeterReport",
       "type": "PlaytimeMeterReport",
-      "import": "./playtime_meter_report",
-      "isArray": true
+      "import": "./playtime_meter_report"
     }]
   }
 }, {
