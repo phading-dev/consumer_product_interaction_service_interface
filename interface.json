@@ -1,29 +1,62 @@
 [{
-  "name": "GetCurrentMeterRequestBody",
-  "message": {
-    "fields": []
-  }
-}, {
-  "name": "GetCurrentMeterResponse",
+  "name": "GetPlaytimeMeterReportRequestBody",
   "message": {
     "fields": [{
-      "name" : "playtimeMeters",
-      "type": "PlaytimeMeter",
-      "import": "./playtime_meter",
+      "name": "reportId",
+      "type": "string",
+      "comment": "If absent, return the current report. Otherwise, return the corresponding historical report."
+    }]
+  }
+}, {
+  "name": "GetPlaytimeMeterReportResponse",
+  "message": {
+    "fields": [{
+      "name" : "playtimeMeterReport",
+      "type": "PlaytimeMeterReport",
+      "import": "./playtime_meter_report",
       "isArray": true
     }]
   }
 }, {
-  "name": "GetCurrentMeter",
+  "name": "GetPlaytimeMeterReport",
   "service": {
-    "path": "/GetCurrentMeter",
-    "body": "GetCurrentMeterRequestBody",
+    "path": "/GetPlaytimeMeterReport",
+    "body": "GetPlaytimeMeterReportRequestBody",
     "auth": {
       "key": "auth",
       "type": "UserSession",
       "import": "@phading/user_service_interface/user_session"
     },
-    "response": "GetCurrentMeterResponse",
+    "response": "GetPlaytimeMeterReportResponse",
+    "outputWebClient": "./client_requests",
+    "outputHandler": "./server_handlers"
+  }
+}, {
+  "name": "ListHistoryPlaytimeMeterReportsRequestBody",
+  "message": {
+    "fields": []
+  }
+}, {
+  "name": "ListHistoryPlaytimeMeterReportsResponse",
+  "message": {
+    "fields": [{
+      "name" : "playtimeMeterReportRange",
+      "type": "PlaytimeMeterReportRange",
+      "import": "./playtime_meter_report_range",
+      "isArray": true
+    }]
+  }
+}, {
+  "name": "ListHistoryPlaytimeMeterReports",
+  "service": {
+    "path": "/ListHistoryPlaytimeMeterReports",
+    "body": "ListHistoryPlaytimeMeterReportsRequestBody",
+    "auth": {
+      "key": "auth",
+      "type": "UserSession",
+      "import": "@phading/user_service_interface/user_session"
+    },
+    "response": "ListHistoryPlaytimeMeterReportsResponse",
     "outputWebClient": "./client_requests",
     "outputHandler": "./server_handlers"
   }

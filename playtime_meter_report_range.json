@@ -1,0 +1,15 @@
+[{
+  "name": "PlaytimeMeterReportRange",
+  "message": {
+    "fields": [{
+      "name": "reportId",
+      "type": "string"
+    }, {
+      "name": "startTimestamp",
+      "type": "number"
+    }, {
+      "name": "endTimestamp",
+      "type": "number"
+    }]
+  }
+}]

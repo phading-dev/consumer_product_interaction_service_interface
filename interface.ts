@@ -1,46 +1,92 @@
 import { MessageDescriptor, PrimitiveType } from '@selfage/message/descriptor';
-import { PlaytimeMeter, PLAYTIME_METER } from './playtime_meter';
+import { PlaytimeMeterReport, PLAYTIME_METER_REPORT } from './playtime_meter_report';
 import { ServiceDescriptor } from '@selfage/service_descriptor';
 import { USER_SESSION } from '@phading/user_service_interface/user_session';
+import { PlaytimeMeterReportRange, PLAYTIME_METER_REPORT_RANGE } from './playtime_meter_report_range';
 import { AppType, APP_TYPE } from '@phading/product_service_interface/app_type';
 import { SavedProductList, SAVED_PRODUCT_LIST } from './saved_product_list';
 
-export interface GetCurrentMeterRequestBody {
+export interface GetPlaytimeMeterReportRequestBody {
+/* If absent, return the current report. Otherwise, return the corresponding historical report. */
+  reportId?: string,
 }
 
-export let GET_CURRENT_METER_REQUEST_BODY: MessageDescriptor<GetCurrentMeterRequestBody> = {
-  name: 'GetCurrentMeterRequestBody',
+export let GET_PLAYTIME_METER_REPORT_REQUEST_BODY: MessageDescriptor<GetPlaytimeMeterReportRequestBody> = {
+  name: 'GetPlaytimeMeterReportRequestBody',
   fields: [
+    {
+      name: 'reportId',
+      primitiveType: PrimitiveType.STRING,
+    },
   ]
 };
 
-export interface GetCurrentMeterResponse {
-  playtimeMeters?: Array<PlaytimeMeter>,
+export interface GetPlaytimeMeterReportResponse {
+  playtimeMeterReport?: Array<PlaytimeMeterReport>,
 }
 
-export let GET_CURRENT_METER_RESPONSE: MessageDescriptor<GetCurrentMeterResponse> = {
-  name: 'GetCurrentMeterResponse',
+export let GET_PLAYTIME_METER_REPORT_RESPONSE: MessageDescriptor<GetPlaytimeMeterReportResponse> = {
+  name: 'GetPlaytimeMeterReportResponse',
   fields: [
     {
-      name: 'playtimeMeters',
-      messageType: PLAYTIME_METER,
+      name: 'playtimeMeterReport',
+      messageType: PLAYTIME_METER_REPORT,
       isArray: true,
     },
   ]
 };
 
-export let GET_CURRENT_METER: ServiceDescriptor = {
-  name: "GetCurrentMeter",
-  path: "/GetCurrentMeter",
+export let GET_PLAYTIME_METER_REPORT: ServiceDescriptor = {
+  name: "GetPlaytimeMeterReport",
+  path: "/GetPlaytimeMeterReport",
   body: {
-    messageType: GET_CURRENT_METER_REQUEST_BODY,
+    messageType: GET_PLAYTIME_METER_REPORT_REQUEST_BODY,
   },
   auth: {
     key: "auth",
     type: USER_SESSION
   },
   response: {
-    messageType: GET_CURRENT_METER_RESPONSE,
+    messageType: GET_PLAYTIME_METER_REPORT_RESPONSE,
+  },
+}
+
+export interface ListHistoryPlaytimeMeterReportsRequestBody {
+}
+
+export let LIST_HISTORY_PLAYTIME_METER_REPORTS_REQUEST_BODY: MessageDescriptor<ListHistoryPlaytimeMeterReportsRequestBody> = {
+  name: 'ListHistoryPlaytimeMeterReportsRequestBody',
+  fields: [
+  ]
+};
+
+export interface ListHistoryPlaytimeMeterReportsResponse {
+  playtimeMeterReportRange?: Array<PlaytimeMeterReportRange>,
+}
+
+export let LIST_HISTORY_PLAYTIME_METER_REPORTS_RESPONSE: MessageDescriptor<ListHistoryPlaytimeMeterReportsResponse> = {
+  name: 'ListHistoryPlaytimeMeterReportsResponse',
+  fields: [
+    {
+      name: 'playtimeMeterReportRange',
+      messageType: PLAYTIME_METER_REPORT_RANGE,
+      isArray: true,
+    },
+  ]
+};
+
+export let LIST_HISTORY_PLAYTIME_METER_REPORTS: ServiceDescriptor = {
+  name: "ListHistoryPlaytimeMeterReports",
+  path: "/ListHistoryPlaytimeMeterReports",
+  body: {
+    messageType: LIST_HISTORY_PLAYTIME_METER_REPORTS_REQUEST_BODY,
+  },
+  auth: {
+    key: "auth",
+    type: USER_SESSION
+  },
+  response: {
+    messageType: LIST_HISTORY_PLAYTIME_METER_REPORTS_RESPONSE,
   },
 }
 

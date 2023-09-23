@@ -1,12 +1,22 @@
 import { WebServiceClientInterface } from '@selfage/service_descriptor/web_service_client_interface';
-import { GetCurrentMeterRequestBody, GetCurrentMeterResponse, GET_CURRENT_METER, IncrementPlaytimeRequestBody, IncrementPlaytimeResponse, INCREMENT_PLAYTIME, RecordPlayHistoryRequestBody, RecordPlayHistoryResponse, RECORD_PLAY_HISTORY, SaveProductRequestBody, SaveProductResponse, SAVE_PRODUCT, CreateSavedProductListRequestBody, CreateSavedProductListResponse, CREATE_SAVED_PRODUCT_LIST, ListSavedProductListRequestBody, ListSavedProductListResponse, LIST_SAVED_PRODUCT_LIST } from './interface';
+import { GetPlaytimeMeterReportRequestBody, GetPlaytimeMeterReportResponse, GET_PLAYTIME_METER_REPORT, ListHistoryPlaytimeMeterReportsRequestBody, ListHistoryPlaytimeMeterReportsResponse, LIST_HISTORY_PLAYTIME_METER_REPORTS, IncrementPlaytimeRequestBody, IncrementPlaytimeResponse, INCREMENT_PLAYTIME, RecordPlayHistoryRequestBody, RecordPlayHistoryResponse, RECORD_PLAY_HISTORY, SaveProductRequestBody, SaveProductResponse, SAVE_PRODUCT, CreateSavedProductListRequestBody, CreateSavedProductListResponse, CREATE_SAVED_PRODUCT_LIST, ListSavedProductListRequestBody, ListSavedProductListResponse, LIST_SAVED_PRODUCT_LIST } from './interface';
 
-export function getCurrentMeter(
+export function getPlaytimeMeterReport(
   client: WebServiceClientInterface,
-  body: GetCurrentMeterRequestBody,
-): Promise<GetCurrentMeterResponse> {
+  body: GetPlaytimeMeterReportRequestBody,
+): Promise<GetPlaytimeMeterReportResponse> {
   return client.send({
-    descriptor: GET_CURRENT_METER,
+    descriptor: GET_PLAYTIME_METER_REPORT,
+    body,
+  });
+}
+
+export function listHistoryPlaytimeMeterReports(
+  client: WebServiceClientInterface,
+  body: ListHistoryPlaytimeMeterReportsRequestBody,
+): Promise<ListHistoryPlaytimeMeterReportsResponse> {
+  return client.send({
+    descriptor: LIST_HISTORY_PLAYTIME_METER_REPORTS,
     body,
   });
 }

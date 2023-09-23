@@ -1,14 +1,23 @@
 import { ServiceHandlerInterface } from '@selfage/service_descriptor/service_handler_interface';
-import { GET_CURRENT_METER, GetCurrentMeterRequestBody, GetCurrentMeterResponse, INCREMENT_PLAYTIME, IncrementPlaytimeRequestBody, IncrementPlaytimeResponse, RECORD_PLAY_HISTORY, RecordPlayHistoryRequestBody, RecordPlayHistoryResponse, SAVE_PRODUCT, SaveProductRequestBody, SaveProductResponse, CREATE_SAVED_PRODUCT_LIST, CreateSavedProductListRequestBody, CreateSavedProductListResponse, LIST_SAVED_PRODUCT_LIST, ListSavedProductListRequestBody, ListSavedProductListResponse } from './interface';
+import { GET_PLAYTIME_METER_REPORT, GetPlaytimeMeterReportRequestBody, GetPlaytimeMeterReportResponse, LIST_HISTORY_PLAYTIME_METER_REPORTS, ListHistoryPlaytimeMeterReportsRequestBody, ListHistoryPlaytimeMeterReportsResponse, INCREMENT_PLAYTIME, IncrementPlaytimeRequestBody, IncrementPlaytimeResponse, RECORD_PLAY_HISTORY, RecordPlayHistoryRequestBody, RecordPlayHistoryResponse, SAVE_PRODUCT, SaveProductRequestBody, SaveProductResponse, CREATE_SAVED_PRODUCT_LIST, CreateSavedProductListRequestBody, CreateSavedProductListResponse, LIST_SAVED_PRODUCT_LIST, ListSavedProductListRequestBody, ListSavedProductListResponse } from './interface';
 import { UserSession } from '@phading/user_service_interface/user_session';
 
-export abstract class GetCurrentMeterHandlerInterface implements ServiceHandlerInterface {
-  public descriptor = GET_CURRENT_METER;
+export abstract class GetPlaytimeMeterReportHandlerInterface implements ServiceHandlerInterface {
+  public descriptor = GET_PLAYTIME_METER_REPORT;
   public abstract handle(
     requestId: string,
-    body: GetCurrentMeterRequestBody,
+    body: GetPlaytimeMeterReportRequestBody,
     auth: UserSession,
-  ): Promise<GetCurrentMeterResponse>;
+  ): Promise<GetPlaytimeMeterReportResponse>;
+}
+
+export abstract class ListHistoryPlaytimeMeterReportsHandlerInterface implements ServiceHandlerInterface {
+  public descriptor = LIST_HISTORY_PLAYTIME_METER_REPORTS;
+  public abstract handle(
+    requestId: string,
+    body: ListHistoryPlaytimeMeterReportsRequestBody,
+    auth: UserSession,
+  ): Promise<ListHistoryPlaytimeMeterReportsResponse>;
 }
 
 export abstract class IncrementPlaytimeHandlerInterface implements ServiceHandlerInterface {

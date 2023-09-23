@@ -1,0 +1,31 @@
+[{
+  "name": "PlaytimeMeterPerApp",
+  "message": {
+    "fields": [{
+      "name": "appType",
+      "type": "AppType",
+      "import": "@phading/product_service_interface/app_type"
+    }, {
+      "name": "playtime",
+      "type": "number"
+    }]
+  }
+}, {
+  "name": "PlaytimeMeterReport",
+  "message": {
+    "fields": [{
+      "name": "totalPlaytime",
+      "type": "number"
+    }, {
+      "name": "playtimeMeterPerApp",
+      "type": "PlaytimeMeterPerApp",
+      "isArray": true
+    }, {
+      "name": "startTimestamp",
+      "type": "number"
+    }, {
+      "name": "endTimestamp",
+      "type": "number"
+    }]
+  }
+}]
