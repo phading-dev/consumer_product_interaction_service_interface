@@ -17,7 +17,7 @@
       "name": "totalPlaytime",
       "type": "number"
     }, {
-      "name": "playtimeMeterPerApp",
+      "name": "playtimeMetersPerApp",
       "type": "PlaytimeMeterPerApp",
       "isArray": true
     }, {

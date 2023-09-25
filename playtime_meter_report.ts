@@ -22,7 +22,7 @@ export let PLAYTIME_METER_PER_APP: MessageDescriptor<PlaytimeMeterPerApp> = {
 
 export interface PlaytimeMeterReport {
   totalPlaytime?: number,
-  playtimeMeterPerApp?: Array<PlaytimeMeterPerApp>,
+  playtimeMetersPerApp?: Array<PlaytimeMeterPerApp>,
   startTimestamp?: number,
   endTimestamp?: number,
 }
@@ -35,7 +35,7 @@ export let PLAYTIME_METER_REPORT: MessageDescriptor<PlaytimeMeterReport> = {
       primitiveType: PrimitiveType.NUMBER,
     },
     {
-      name: 'playtimeMeterPerApp',
+      name: 'playtimeMetersPerApp',
       messageType: PLAYTIME_METER_PER_APP,
       isArray: true,
     },
