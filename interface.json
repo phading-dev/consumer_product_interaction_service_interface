@@ -39,7 +39,7 @@
   "name": "ListHistoryPlaytimeMeterReportsResponse",
   "message": {
     "fields": [{
-      "name" : "playtimeMeterReportRange",
+      "name" : "playtimeMeterReportRanges",
       "type": "PlaytimeMeterReportRange",
       "import": "./playtime_meter_report_range",
       "isArray": true

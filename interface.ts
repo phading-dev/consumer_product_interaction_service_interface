@@ -60,14 +60,14 @@ export let LIST_HISTORY_PLAYTIME_METER_REPORTS_REQUEST_BODY: MessageDescriptor<L
 };
 
 export interface ListHistoryPlaytimeMeterReportsResponse {
-  playtimeMeterReportRange?: Array<PlaytimeMeterReportRange>,
+  playtimeMeterReportRanges?: Array<PlaytimeMeterReportRange>,
 }
 
 export let LIST_HISTORY_PLAYTIME_METER_REPORTS_RESPONSE: MessageDescriptor<ListHistoryPlaytimeMeterReportsResponse> = {
   name: 'ListHistoryPlaytimeMeterReportsResponse',
   fields: [
     {
-      name: 'playtimeMeterReportRange',
+      name: 'playtimeMeterReportRanges',
       messageType: PLAYTIME_METER_REPORT_RANGE,
       isArray: true,
     },
